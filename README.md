@@ -39,7 +39,7 @@ Before you begin, make sure you have installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone 
+git clone https://github.com/izes/smart-home
 cd smart-home
 ```
 
