@@ -52,6 +52,7 @@ services:
       - api-gateway
     environment:
       - REACT_APP_API_URL=http://localhost:8080
+      - NODE_ENV=development
 
   mysql:
     image: mysql:8.0
