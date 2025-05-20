@@ -48,7 +48,6 @@ cd smart-home
 #### Build Microservices
 
 ```bash
-cd microservices
 mvn clean package -DskipTests
 ```
 
