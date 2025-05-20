@@ -1,0 +1,54 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:3002"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            allowCredentials: true
+      routes:
+        - id: device-management-service
+          uri: http://device-management-service:8080
+          predicates:
+            - Path=/api/v1/appliances/**
+          filters:
+            - StripPrefix=0
+
+        - id: event-service
+          uri: http://event-service:8081
+          predicates:
+            - Path=/api/v1/events/**
+          filters:
+            - StripPrefix=0
+            - AddResponseHeader=Content-Type,text/event-stream
+
+        - id: event-service-scheduler
+          uri: http://event-service:8081
+          predicates:
+            - Path=/api/v1/scheduler/**
+          filters:
+            - StripPrefix=0
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.netty: DEBUG
+    redisratelimiter: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
