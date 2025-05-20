@@ -11,6 +11,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>smart-home</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 	<name>smart-home</name>
 	<description>Smart Home Appliance Control - Java + Spring Boot</description>
 	<url/>
@@ -26,6 +27,13 @@
 		<tag/>
 		<url/>
 	</scm>
+
+	<modules>
+		<module>microservices/api-gateway</module>
+		<module>microservices/event-service</module>
+		<module>microservices/device-management-service</module>
+	</modules>
+
 	<properties>
 		<java.version>17</java.version>
 		<spring-cloud.version>2023.0.0</spring-cloud.version>
