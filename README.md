@@ -54,6 +54,7 @@ mvn clean package -DskipTests
 #### Start Services with Docker Compose
 
 ```bash
+npm install -D @vue/cli-service
 docker-compose up -d
 ```
 
