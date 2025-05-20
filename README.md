@@ -45,7 +45,7 @@ cd smart-home
 
 ### 2. Backend Setup
 
-#### Build Microservices
+#### Build Project
 
 ```bash
 mvn clean package -DskipTests
